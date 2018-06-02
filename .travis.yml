@@ -1,0 +1,11 @@
+language: node_js
+node_js: node
+services:
+- mongodb
+deploy:
+  provider: heroku
+  api_key:
+    secure: DBd568SY4piIndva9naOS8IPl9ExuGuXTUoWvnDrbfikNtGRDJxjlKlSNNp37KDjOUCoPr0G+yytWJ7xvDa+jaBKhEsIAfZc+J5EbNtWHHofl08zmi4KO4w5ci5Xtb4K1X8K5RHCdGBM5IXzTv86oGAw3l1c2vBhOlOltF7Zo8FIFqS1MjA29Xi9oldv0fJbb8N1ENZLYdpnQSYpHK9350T5yxsnqi5YlWoBpr9XWXeHVwsbpJotJWKh5DFljhLxx+mENfOcxKhPID2a1eMJL8++O1xFm0xP/AQzdQ1OTZv4Ah6Ul2LK4JHYYHYuGZXcc7UzMllFw69JKLD7HwfcTN8iXk7HhIOY3UVIiCyVBC3Q7U/zoGqc+pYNLe66nKCUUTS6uBosxQpkpAxyWptL7pl8YkaqyI1BHAgpAg6/jGAPYTiuNcx3fD5+bSpzvatNg9GB+fkz8YnR7E93ZpT6FD4kkZKsR6DihwhMgYhz45SmPsf5Zg7+LDlZcFGEUkfVXPmONB7b1IOkBRz1Wt5CsA4/GsmzL1MYwIMSP0Ku/NtpuxkylS9xK3m5G2jcyEQLdWj5w1+KQtyYAlEvXClkVVAhA0LPWd3SOExUZjRFjykL6KSeoVHf85X+sm3qjN9UoC5hP/lmXhOZKAntcDVyXG36tgPbirnsbs6q3zGBiz4=
+  app: shetravels
+  on:
+    repo: olaassem/sheTravels-api
