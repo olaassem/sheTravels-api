@@ -1,14 +1,16 @@
 const express = require('express');
 const app = express();
-const cors = require('cors');
-const {CLIENT_ORIGIN} = require('./config');
 
-
-app.use(
-    cors({
-        origin: CLIENT_ORIGIN
-    })
-);
+//CORS setup
+// const cors = require('cors');
+// const {CLIENT_ORIGIN} = require('./config');
+//
+//
+// app.use(
+//     cors({
+//         origin: CLIENT_ORIGIN
+//     })
+// );
 
 
 
