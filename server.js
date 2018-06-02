@@ -29,7 +29,7 @@ app.use(express.static('public'));
 //ROUTES
 const user = require('./user/user-routes');
 const review = require('./review/review-routes');
-const maps = require('./maps/maps-routes');
+const map = require('./map/map-routes');
 
 
 //PREFIXES
