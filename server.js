@@ -28,14 +28,14 @@ app.use(express.static('public'));
 
 //ROUTES
 const user = require('./user/user-routes');
-const review = require('./review/review-routes');
-const map = require('./map/map-routes');
+// const review = require('./review/review-routes');
+// const map = require('./map/map-routes');
 
 
 //PREFIXES
 app.use('/user', user);
-app.use('/review', review);
-app.use('/maps', maps);
+// app.use('/review', review);
+// app.use('/maps', maps);
 
 
 app.use('*', function (req, res) {

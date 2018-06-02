@@ -4,10 +4,8 @@ const userController = require('./user-controller');
 
 
 
-router.post('/register');
-
-// router.post('/register', userController.postNewUser);
-router.post('/login', userController.loginUser);
+router.post('/register', userController.postNewUser);
+// router.post('/login', userController.loginUser);
 
 
 
