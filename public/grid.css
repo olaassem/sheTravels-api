@@ -10,6 +10,24 @@
   font-size: 20px;
 }
 
+/*--M A P     S T Y L I N G--*/
+#map{
+    height: 200px;
+    width: 80%;
+    border: 2px solid grey;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.locationImg{
+  float: left;
+  padding-left: 50px;
+}
+
+
 /* Grid measurements:
  *
  *   960px wide including 12 gutters (half gutters on both edges)

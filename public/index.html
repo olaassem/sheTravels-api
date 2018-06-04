@@ -15,8 +15,6 @@
 
 
 
-
-
 <body>
 	<header role="banner" id="box1">
 		<div class="row">
@@ -26,7 +24,7 @@
 		            	<fieldset>
 		            		<legend class="sub-intro"> Search destination</legend>
 					        	<div id="locationField">
-									<input id="autocomplete"type="text" placeholder="e.g. Temple of Heaven" required="" oninvalid="this.setCustomValidity('Please enter an address, city, or trail name.')" oninput="setCustomValidity('')" />
+									<input id="autocomplete"type="text" placeholder="e.g. Temple of Heaven" required="" oninvalid="this.setCustomValidity('Please enter an address, city, or landmark name.')" oninput="setCustomValidity('')" />
 									<div class="row">
 										<div class="col-12">
 											<button type="submit" id="searchbutton">DISCOVER</button>
@@ -40,35 +38,15 @@
 		</div>
     </header>
 
-    <main role="main" class="js-output" aria-live="assertive" hidden>
-
-    	<section id="boxInvalid" class="hidden" role="region">
-    		<div class="row">
-        		<div class="col-12">
-        			<p class="invalidsearch"> Invalid location. Please try again.</p>
-        		</div>
-        	</div>
-    	</section>
+    <main>
+			<div id="map"></div>
+			<div class="locationImg"></div>
+			<div class="locationInfo"></div>
+		</main>
 
 
 
-
-
-        <section id="box3" class="hidden" role="region">
-        	<div class="row">
-        		<div class="col-12">
-        			<h2 class="trailsfound"></h2>
-					<div class="js-trails-container"><div>
-				</div>
-			</div>
-        </section>
-
-
-
-	</main>
-
-
-	<!-- jQuery Script -->
+<!-- jQuery Script -->
 	<script src="https://code.jquery.com/jquery-3.2.1.min.js"
 	integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
 	crossorigin="anonymous"></script>
@@ -78,9 +56,5 @@
 
    <!--Trail  Google Map Script-->
 	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA6ECb06GHjgfRQjrOJKy6tQqScBimbFmA&libraries=places&callback=initialize" async defer></script>
-
-  <!-- https://maps.googleapis.com/maps/api/place/textsearch/json?query=temple+of+heaven+point+of+interest&language=en&key=AIzaSyA6ECb06GHjgfRQjrOJKy6tQqScBimbFmA -->
-
-
 </body>
 </html>
