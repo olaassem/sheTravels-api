@@ -1,4 +1,5 @@
-
+//NEEDS TO BE INSIDE client app
+//https://github.com/tomchentw/react-google-maps
 
 function initialize(){
    initAutocomplete();

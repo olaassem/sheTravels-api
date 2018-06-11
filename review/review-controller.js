@@ -7,14 +7,12 @@ exports.postNewReview = (req, res) => {
 	// newReview.userID = req.body.userID;
 	// newReview.mapID = req.body.mapID;
 	newReview.submitted = req.body.submitted;
-	newReview.visitDate = req.body.visitDate;
+	newReview.visit = req.body.visit;
 	newReview.duration = req.body.duration;
 	newReview.rating = req.body.rating;
 	newReview.safety = req.body.safety;
-	newReview.hospitality = req.body.hospitality;
   newReview.dress = req.body.dress;
   newReview.affordability = req.body.affordability;
-  newReview.access = req.body.access;
   newReview.title = req.body.title;
   newReview.summary = req.body.summary;
 	newReview.save()
