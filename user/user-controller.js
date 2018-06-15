@@ -33,7 +33,18 @@ exports.postNewUser = (req, res) => {
                 });
                 return
             }
-
+            if (req.body.country == "0") {
+                res.status(401).json({
+                    message: 'Please select your country of residence.'
+                });
+                return
+            }
+            if (req.body.age == "0") {
+                res.status(401).json({
+                    message: 'Please select your age group.'
+                });
+                return
+            }
 
 
             //check that all input types strings.
@@ -137,59 +148,57 @@ exports.postNewUser = (req, res) => {
 }
 
 
-//
-//
-// exports.loginUser = (req, res) => {
-//     userModel.findOne({ username: req.body.username })
-//         .then((user) => {
-//             if (!req.body.username) {
-//                 res.status(401).json({
-//                     message: 'Please enter your username.'
-//                 })
-//                 return
-//             }
-//             if (!req.body.password) {
-//                 res.status(401).json({
-//                     message: 'Please enter your password.'
-//                 })
-//                 return
-//             }
-//             if (!user) {
-//                 res.status(401).json({
-//                     message: `No registered account found for this user.`
-//                 })
-//                 return
-//             }
-//             let passwordMatch = bcrypt.compareSync(req.body.password, user.password);
-//             if (!passwordMatch) {
-//                 res.status(401).json({
-//                     message: `Entered password doesn't match account password.`
-//                 })
-//                 return
-//             }
-//
-//             let userToken = {
-//                 username: user.username,
-//                 id: user._id
-//             }
-//
-//             let token = jwt.sign(userToken, config.JWT_SECRET);
-//             res.status(200).json({
-//                 message: 'User logged in.',
-//                 data: {
-//                     token: token,
-//                     name: user.name,
-//                     userID: user._id,
-//                     country: user.country,
-//                     age: user.age
-//                 }
-//             })
-//         })
-//         .catch((error) => {
-//             console.log(error);
-//             res.status(500).json({
-//                 message: `Error fetching user.`,
-//                 data: error
-//             })
-//         })
-// }
+exports.loginUser = (req, res) => {
+    userModel.findOne({ username: req.body.username })
+        .then((user) => {
+            if (!req.body.username) {
+                res.status(401).json({
+                    message: 'Please enter your username.'
+                })
+                return
+            }
+            if (!req.body.password) {
+                res.status(401).json({
+                    message: 'Please enter your password.'
+                })
+                return
+            }
+            if (!user) {
+                res.status(401).json({
+                    message: `No registered account found for this user.`
+                })
+                return
+            }
+            let passwordMatch = bcrypt.compareSync(req.body.password, user.password);
+            if (!passwordMatch) {
+                res.status(401).json({
+                    message: `Entered password doesn't match account password.`
+                })
+                return
+            }
+
+            let userToken = {
+                username: user.username,
+                id: user._id
+            }
+
+            let token = jwt.sign(userToken, config.JWT_SECRET);
+            res.status(200).json({
+                message: 'User logged in.',
+                data: {
+                    token: token,
+                    name: user.name,
+                    userID: user._id,
+                    country: user.country,
+                    age: user.age
+                }
+            })
+        })
+        .catch((error) => {
+            console.log(error);
+            res.status(500).json({
+                message: `Error fetching user.`,
+                data: error
+            })
+        })
+}
