@@ -52,23 +52,25 @@ exports.getAllAppReviews = (req, res) => {
 
 //Get all reviews for unique user
 exports.getAllUserReviews = (req, res) => {
+	console.log(`userID:   ` + req.user.id);
 		reviewModel.find({userID: req.user.id})
 	.then((reviews) => {
+		console.log(`reviews:  ` + reviews);
 		res.status(200).json({
-			message: "Successfully retrieved all reviews.",
+			message: "Successfully retrieved all user reviews.",
 			data: reviews
 		})
 	})
 	.catch((error) => {
 		res.status(500).json({
-			message: "Error retrieving all reviews.",
+			message: "Error retrieving all user reviews.",
 			data: error
 		})
 	})
 }
 
 
-
+//Delete review by ID
 exports.deleteReviewByID = (req,res) => {
 	reviewModel.findByIdAndRemove(req.params.id)
 	.then(() => {

@@ -1,34 +1,30 @@
-//CORS setup
-// const cors = require('cors');
-// const {CLIENT_ORIGIN} = require('./config');
-//
-//
-// app.use(
-//     cors({
-//         origin: CLIENT_ORIGIN
-//     })
-// );
-
-
 const express = require('express');
 const bodyparser = require('body-parser');
 const morgan = require('morgan');
+const cors = require('cors');
 const mongoose = require('mongoose');
 require('dotenv').config();
-const {PORT, DATABASE_URL} = require('./config');
+const {PORT, DATABASE_URL, CLIENT_ORIGIN} = require('./config');
 const app = express();
+
+
 mongoose.Promise = global.Promise;
 
 
 //MIDDLEWARE
 app.use(morgan('common'));
 app.use(bodyparser.json());
-app.use(express.static('public'));
-
+app.use(cors({origin: CLIENT_ORIGIN}));
 
 //ROUTES
 const user = require('./user/user-routes');
 const review = require('./review/review-routes');
+
+
+
+app.get('/', (req, res) => {
+  res.sendFile(_dirname + '../sheTravels-client/public/index.html').status(200);
+});
 
 
 //PREFIXES
