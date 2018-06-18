@@ -4,9 +4,11 @@ const reviewModel = require('./review-model');
 //post new review
 exports.postNewReview = (req, res) => {
 	let newReview = new reviewModel();
-	// newReview.userID = req.body.userID;
-	// newReview.mapID = req.body.mapID;
+	newReview.userID = req.body.userID;
 	newReview.submitted = req.body.submitted;
+	newReview.address = req.body.address;
+	newReview.formattedAddress = req.body.formattedAddress;
+	newReview.picture = req.body.picture;
 	newReview.visit = req.body.visit;
 	newReview.duration = req.body.duration;
 	newReview.rating = req.body.rating;
@@ -29,7 +31,6 @@ exports.postNewReview = (req, res) => {
 		})
 	})
 }
-
 
 //Get all sheTravels users' reviews
 exports.getAllAppReviews = (req, res) => {

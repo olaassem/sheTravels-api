@@ -46,7 +46,6 @@ exports.postNewUser = (req, res) => {
                 return
             }
 
-
             //check that all input types strings.
             const stringFields = ['username', 'password', 'name', 'country', 'age'];
             const nonStringField = stringFields.find(
