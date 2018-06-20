@@ -83,7 +83,13 @@ describe('test review API resources', function() {
     console.log('before running server')
     runServer(TEST_DATABASE_URL)
       .then(function() {
-        createUser().then(() => done());
+        console.log('before calling create new user');
+        createUser().then(
+          () => {
+            console.log('after calling create new user');
+
+            done()
+          });
       })
   });
 

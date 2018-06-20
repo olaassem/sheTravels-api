@@ -21,10 +21,9 @@ const user = require('./user/user-routes');
 const review = require('./review/review-routes');
 
 
-
-app.get('/', (req, res) => {
-  res.sendFile(_dirname + '../sheTravels-client/public/index.html').status(200);
-});
+// app.get('/', (req, res) => {
+//   res.sendFile(_dirname + '../sheTravels-client/public/index.html').status(200);
+// });
 
 
 //PREFIXES

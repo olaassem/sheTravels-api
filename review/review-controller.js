@@ -1,12 +1,15 @@
 const reviewModel = require('./review-model');
-
+const mongoose = require('mongoose');
 
 //post new review
 exports.postNewReview = (req, res) => {
 	let newReview = new reviewModel();
-	newReview.userID = req.body.userID;
+	newReview.userID = mongoose.Types.ObjectId(req.body.userID);
 	newReview.submitted = req.body.submitted;
 	newReview.address = req.body.address;
+	newReview.country = req.body.country;
+	newReview.age = req.body.age;
+	newReview.name = req.body.name;
 	newReview.formattedAddress = req.body.formattedAddress;
 	newReview.picture = req.body.picture;
 	newReview.visit = req.body.visit;
@@ -36,6 +39,7 @@ exports.postNewReview = (req, res) => {
 exports.getAllAppReviews = (req, res) => {
 		reviewModel.find()
 	.then((reviews) => {
+		console.log(reviews);
 		res.status(200).json({
 			message: "Successfully retrieved all reviews.",
 			data: reviews
