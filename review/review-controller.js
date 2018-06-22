@@ -37,9 +37,8 @@ exports.postNewReview = (req, res) => {
 
 //Get all sheTravels users' reviews
 exports.getAllAppReviews = (req, res) => {
-		reviewModel.find()
+		reviewModel.find().sort({submitted: -1})
 	.then((reviews) => {
-		console.log(reviews);
 		res.status(200).json({
 			message: "Successfully retrieved all reviews.",
 			data: reviews
@@ -56,10 +55,8 @@ exports.getAllAppReviews = (req, res) => {
 
 //Get all reviews for unique user
 exports.getAllUserReviews = (req, res) => {
-	console.log(`userID:   ` + req.user.id);
-		reviewModel.find({userID: req.user.id})
+		reviewModel.find({userID: req.user.id}).sort({submitted: -1})
 	.then((reviews) => {
-		console.log(`reviews:  ` + reviews);
 		res.status(200).json({
 			message: "Successfully retrieved all user reviews.",
 			data: reviews
