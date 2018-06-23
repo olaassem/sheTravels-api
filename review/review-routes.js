@@ -18,5 +18,4 @@ router.get('/all/:token', commonController.verifyToken, reviewController.getAllU
 router.delete('/:id/:token', commonController.verifyToken, reviewController.deleteReviewByID);
 
 
-
 module.exports = router;
